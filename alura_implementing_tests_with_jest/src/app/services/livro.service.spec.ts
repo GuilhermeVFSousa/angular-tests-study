@@ -1,12 +1,16 @@
 import { GeneroLiterario, Livro } from "../componentes/livro/livro";
 import { livros } from "../mock-livros";
+import { TestBed} from "@angular/core/testing"
 import { ErroGeneroLiterario, LivroService } from "./livro.service"
 
 describe('LivroService', () => {
     let service: LivroService;
 
     beforeEach(() => {
-        service = new LivroService();
+        TestBed.configureTestingModule({
+            providers: [LivroService]
+        })
+        service = TestBed.inject(LivroService);
     })
 
     const novoLivro: Livro = {
